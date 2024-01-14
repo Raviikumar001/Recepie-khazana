@@ -1,5 +1,5 @@
 import React from 'react'
-import pizza from '../../../../public/pizza.jpg'
+import SignupForm from './_signupForm'
 
 
 const Signup = () => {
@@ -8,22 +8,26 @@ const Signup = () => {
 
 
   return (
-    <div className='grid grid-col-2 grid-flow-row  h-full'>
+    <div className='grid grid-col-2 grid-flow-col  h-full w-full'>
       <div
+
+      className='min-width: min-content'
       style={{
-        backgroundImage: 'url("/pizza.jpg")',
+        backgroundImage: 'url("/recepie1.jpg")',
         backgroundSize: 'cover',
         height: '100vh',
         width: "100%"
       }}
+
+
     >
             
       </div>
-      <div>
+      <div className='account-box'>
 
-        <h1>Receipe Khazna</h1>
-        <h3>Sign in or create an account</h3>
-
+        <h1 className='font-semibold text-2xl text-red-800'>Receipe Khazna</h1>
+        <h3 className='font-bold text-3xl account-heading'>Sign in </h3>
+        <SignupForm />
       </div>
     
     </div>

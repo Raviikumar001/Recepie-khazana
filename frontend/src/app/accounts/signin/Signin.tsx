@@ -1,8 +1,8 @@
 import React from 'react'
-import SignupForm from './_signupForm'
+import SigninForm from './_signinForm'
 
 
-const Signup = () => {
+const SignIn = () => {
 
 
 
@@ -27,7 +27,7 @@ const Signup = () => {
 
         <h1 className='font-semibold text-2xl text-red-800'>Receipe Khazna</h1>
         <h3 className='font-bold text-3xl account-heading'>Sign in </h3>
-        <SignupForm />
+        <SigninForm />
       </div>
     
     </div>
@@ -35,4 +35,4 @@ const Signup = () => {
 
 }
 
-export default Signup
+export default SignIn

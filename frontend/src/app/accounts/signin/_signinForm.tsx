@@ -1,51 +1,41 @@
-"use client";
+"use client"
+
 import React, { useState } from 'react'
 import Link from 'next/link'
-import axios from 'axios'
-import { MessageInfo } from '@/app/_components/_Helper_functions';
-const SignupForm:React.FC = () => {
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword]= useState('');
-    const [confirmPassword, setConfirmPassword] = useState('')
+import axios from 'axios';
+const SigninForm = () => {
+    const [email,setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [message, setMessage] = useState<string>('')
+
     async function onSubmitForm(e:React.FormEvent<HTMLFormElement>)
     {
         e.preventDefault();
-        if(!( name && email && password && confirmPassword) )
+
+        if(!(email || password))
         {
-            setMessage('Fields are Empty')
+            setMessage('Some Fields are Empty');
             return;
         }
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/register`, {
-            name,
+
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/login`, {
             email,
             password
-
-        });
+        })
 
         console.log(response);
 
 
 
-        
-
     }
+
 
 
     return (
         <div>
-
-            <MessageInfo message={message} />
             <form className='form' onSubmit={onSubmitForm} >
-                <label htmlFor='email' className='lablel-text' >Name</label><br />
-                <input name='name' value={name}
-                onChange={(e)=> setName(e.target.value)}
-                type='text' placeholder='Full Name' className='input-box' /><br />
-
                 <label htmlFor='email' className='lablel-text' >Email</label><br />
-                <input name='email' 
+                <input name='email'
                 value={email}
                 onChange={(e)=> setEmail(e.target.value)}
                 type='text' placeholder='Email' className='input-box ' /><br />
@@ -56,13 +46,7 @@ const SignupForm:React.FC = () => {
                 onChange={(e)=> setPassword(e.target.value)}
                 name='password' placeholder='Password' className='input-box ' /><br />
 
-                <label htmlFor='password' className='lablel-text' >Password  </label><br />
-                <input type='password'
-                value={confirmPassword}
-                onChange={(e)=> setConfirmPassword(e.target.value)}
-                name='password' placeholder='Confirm Password' className='input-box' /><br />
-
-                <button type='submit' className='text-btn' >SIGN UP</button>
+                <button type='submit' className='text-btn' > SIGN IN</button>
                 {/* <div className='line-break'>
 
                     <span className='inline-block'>OR</span>
@@ -79,7 +63,7 @@ const SignupForm:React.FC = () => {
                     <img className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
                     <p className="font-medium pl-4">
 
-                        CONTINUE WITH GOOGLE
+                    CONTINUE WITH GOOGLE
 
                     </p>
                 </button>
@@ -91,10 +75,10 @@ const SignupForm:React.FC = () => {
 
 
             </form>
-            <p className='mt-3'>Already have an account? {" "}
-                <Link href="/accounts/signin" className='font-semibold'>
-                    Sign In</Link>
-
+            <p className='mt-3'>Don't have an account? {" "}
+            <Link href="/accounts/signup" className='font-semibold'>
+            Create an account </Link>
+            
             </p>
 
 
@@ -102,4 +86,4 @@ const SignupForm:React.FC = () => {
     )
 }
 
-export default SignupForm
+export default SigninForm

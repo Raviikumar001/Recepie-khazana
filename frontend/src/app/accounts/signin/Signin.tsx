@@ -1,6 +1,6 @@
 import React from 'react'
 import SigninForm from './_signinForm'
-
+import Link from 'next/link'
 
 const SignIn = () => {
 
@@ -25,7 +25,7 @@ const SignIn = () => {
       </div>
       <div className='account-box'>
 
-        <h1 className='font-semibold text-2xl text-red-800'>Receipe Khazna</h1>
+        <h1 className='font-semibold text-2xl text-red-800'><Link href="/">Receipe Khazna </Link> </h1>
         <h3 className='font-bold text-3xl account-heading'>Sign in </h3>
         <SigninForm />
       </div>

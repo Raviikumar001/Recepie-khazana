@@ -5,6 +5,9 @@ import axios from 'axios'
 import { MessageInfo } from '@/app/_components/_Helper_functions';
 const SignupForm:React.FC = () => {
 
+
+
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword]= useState('');
@@ -32,6 +35,18 @@ const SignupForm:React.FC = () => {
         
 
     }
+
+
+
+    const googleAuth = () => {
+        window.open(
+          `http://localhost:5000/v1/auth/google/callback`,
+          "_self"
+        )
+      }
+    
+    
+
 
 
     return (
@@ -75,7 +90,7 @@ const SignupForm:React.FC = () => {
                 {/* <button className='google-auth-button' > 
                 
                 </button> */}
-                <button className="google-auth-button flex justify-center items-center">
+                <button onClick={googleAuth} className="google-auth-button flex justify-center items-center">
                     <img className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
                     <p className="font-medium pl-4">
 

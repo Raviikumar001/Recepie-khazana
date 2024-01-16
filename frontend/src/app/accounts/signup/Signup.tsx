@@ -1,5 +1,7 @@
 import React from 'react'
 import SignupForm from './_signupForm'
+import Link from 'next/link'
+
 const SignUp = () => {
     return (
         <div className='grid grid-col-2 grid-flow-col  h-full w-full'>
@@ -19,7 +21,7 @@ const SignUp = () => {
             </div>
             <div className='account-box'>
 
-                <h1 className='font-semibold text-2xl text-red-800'>Receipe Khazna</h1>
+            <h1 className='font-semibold text-2xl text-red-800'><Link href="/">Receipe Khazna </Link> </h1>
                 <h3 className='font-bold text-3xl account-heading'>Sign Up </h3>
                 <SignupForm />
             </div>

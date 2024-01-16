@@ -1,11 +1,12 @@
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>You are logged in.
+// import React from 'react'
+// import HomePage from './app'
+// const page = () => {
+//   return (
+//     <div>
+//       <HomePage />
         
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default page
+// export default page

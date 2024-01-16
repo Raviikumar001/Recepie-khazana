@@ -1,17 +1,14 @@
+import HomePage from "./_components/home/_home";
+
+ const page =()=> {
 
 
-export default function Home() {
-  return (
-    <main className="">
-    
-    
-      
+  return(
 
-      
-
-       
-  
-        
-    </main>
+    <div className="h-screen">
+      <HomePage />
+    </div>
   )
 }
+
+export default page;

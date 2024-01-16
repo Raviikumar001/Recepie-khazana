@@ -8,11 +8,12 @@ const jwt = require('jsonwebtoken');
 
 const login =async (req, res, next)=> 
 {
+  console.log('hi');
   try {
       const {email, password} = req.body;
       
       const user = await User.findOne({email: email});
-     
+      console.log(user)
       if(!user)
       {
         res.status(401).json({message: "User Does not Exists"});
@@ -20,6 +21,7 @@ const login =async (req, res, next)=>
       }else if(user)
       {
         const passwordMatch= await bcrypt.compare(password, user.password);
+        console.log(passwordMatch)
         if(!passwordMatch)
         {
           res.status(401).json({message:"Password is incorrect"});
@@ -30,7 +32,7 @@ const login =async (req, res, next)=>
           expiresIn: '1h',
           });
         
-        res.status(200).json({token, message:"User Authenticated"});
+        res.status(200).json({token,user, message:"User Authenticated"});
       }
 
 
@@ -42,6 +44,7 @@ const login =async (req, res, next)=>
 
 
 const register = async (req, res) => {
+
   const email = req.body.email;
   const name = req.body.name;
   const password = req.body.password;
@@ -58,7 +61,7 @@ const register = async (req, res) => {
           password: hashedPassword,
           registrationDate: req.body.registrationDate,
         });
-
+        console.log(newUser)
         await newUser.save();
         return res.status(200).json({ message: "User Created" });
       }

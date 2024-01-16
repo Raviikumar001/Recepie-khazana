@@ -15,19 +15,16 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cors({
-    origin:["*"],
+    origin: "*",
     methods: "GET,POST,UPDATE,DELETE",
-    credentials: true,
-    allowedHeaders:"Content-Type,Authorization"
-    })
-    );
+  }));
 
 
 //initialize passport
 app.use(passport.initialize());
 
 
-
+require('./controllers/google-auth-controller');
 app.use('/v1/auth',authRoutes)
 
 app.get('/v1', (req, res)=> {
@@ -37,7 +34,7 @@ app.get('/v1', (req, res)=> {
 const start = async()=> {
 
     try {
-        await connectDB(process.env.MONGOD_URL);
+        await connectDB(process.env.MONGODB_URL);
         app.listen(port, ()=> {
             console.log(`server is listening on port ${port}` );
         })

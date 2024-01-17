@@ -26,3 +26,4 @@ export const MessageInfo:React.FC<MessageInfoProps> =({message})=>
     </>
  )
 }
+

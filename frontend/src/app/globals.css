@@ -76,7 +76,7 @@
       }
       
       .receipe-images-home {
-        @apply flex justify-center mt-[5%];
+        @apply flex justify-center mt-[2%];
       }
   
 }

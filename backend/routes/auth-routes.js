@@ -35,10 +35,13 @@ router.get(
       session:false,
     }),
     (req,res)=> {
+      
+        const user =req.user;
+        const userWithoutPassword = { ...user.toObject(), password: undefined,googleId:undefined };
         const token = jwt.sign({userid:req.user._id}, process.env.SECRET_KEY,{
             expiresIn:'1d'
           })
-        res.redirect(`${client}/app?user=${JSON.stringify(req.user)}&token=${token}`);
+        res.redirect(`${client}/app?user=${JSON.stringify(userWithoutPassword)}&token=${token}`);
     }
    
   );

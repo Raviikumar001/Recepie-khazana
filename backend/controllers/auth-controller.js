@@ -1,8 +1,6 @@
 const User = require("../models/user");
-const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const passport = require("passport");
-const passportLocal = require("passport-local").Strategy;
+
 const jwt = require('jsonwebtoken');
 
 
@@ -26,13 +24,13 @@ const login =async (req, res, next)=>
         {
           res.status(401).json({message:"Password is incorrect"});
         }
-        
+        const userWithoutPassword = { ...user.toObject(), password: undefined };
        
         const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
           expiresIn: '1h',
           });
         
-        res.status(200).json({token,user, message:"User Authenticated"});
+        res.status(200).json({token,user: userWithoutPassword, message:"User Authenticated"});
       }
 
 

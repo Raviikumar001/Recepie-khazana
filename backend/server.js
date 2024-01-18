@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./db/connect');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes'); 
-
+const recepieRoutes = require('./routes/recepie-routes')
 require('dotenv').config();
 
 
@@ -25,7 +25,8 @@ app.use(passport.initialize());
 
 
 require('./controllers/google-auth-controller');
-app.use('/v1/auth',authRoutes)
+app.use('/v1/auth',authRoutes);
+app.use('/v1/api',recepieRoutes);
 
 app.get('/v1', (req, res)=> {
     res.send('Welcome to Receipes');

@@ -22,7 +22,7 @@ const MainSection = () => {
   return (
     <section className='main-section' >
         
-    <div className='text-center mt-[10%]'>
+    <div className='text-center mt-[5%]'>
         <h2 className='text-5xl font-semibold'>Receipes for Saviourings</h2>
         <p className='pt-3 text-2xl'>Dive into the world of recepies</p>  
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import SigninForm from './_signinForm'
+import SigninForm from './SigninForm'
 import Link from 'next/link'
 
 const SignIn = () => {

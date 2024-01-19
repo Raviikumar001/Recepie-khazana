@@ -4,6 +4,7 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { useRouter } from 'next/navigation';
 import AppHeader from '../_components/app/_appHeader';
+import AppRecepieList from '../_components/app/_appRecepieList';
 
 interface Props{
     name: string,
@@ -94,13 +95,14 @@ const MainApp:React.FC= () => {
 
   return (
     <>  
-    <div>
+    {user?._id &&  
+    <>
 
-      
-     <AppHeader />
+     <AppHeader showSearch={true}/>
+    
+    <AppRecepieList />
 
-
-    </div>
+    </>}
 
     </>
   )

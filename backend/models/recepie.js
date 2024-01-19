@@ -8,6 +8,10 @@ const recipeSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: User, // Assuming you have a 'User' model
   },
+  recepieId:{
+    type:String,
+    required:true,
+  },
   title: {
     type: String,
     required: true,
@@ -23,11 +27,16 @@ const recipeSchema = new mongoose.Schema({
     required: false,
     unique: false,
   },
-  totalTime: {
-    type: String,
-    required: false,
-    unique: false,
+  recepieSteps :{
+    type:String,
+    required:false,
+    unique:false
   },
+  // totalTime: {
+  //   type: String,
+  //   required: false,
+  //   unique: false,
+  // },
   images: [{
     type: String,
     required: false,

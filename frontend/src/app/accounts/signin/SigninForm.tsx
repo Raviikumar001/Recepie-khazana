@@ -46,7 +46,7 @@ import Image from 'next/image';
 
     const googleAuth = () => {
         window.open(
-            `http://localhost:5000/v1/auth/google/callback`,
+            `https://recepie-khazana-production.up.railway.app/v1/auth/google/callback`,
             "_self"
         );
     };

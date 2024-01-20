@@ -3,9 +3,12 @@ const router  = express.Router();
 const multer  = require('multer');
 const crypto = require('crypto');
 const sharp = require('sharp');
+
+// const {getRecepies} = require('../controllers/recepie-controller');
+
 const Recipe = require('../models/recepie');
 const { v4: uuidv4 } = require('uuid');
-const {CreateRecepie,getRecepies} = require('../controllers/recepie-controller');
+const { getRecepiesById,getRecepies, updateRecepie , deleteRecepie} = require('../controllers/recepie-controller');
 const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
@@ -35,8 +38,10 @@ const s3= new S3Client({
 
 
 
-
-
+router.route('/get-recepies').get(getRecepies);
+router.route('/get-recepieById').get(getRecepiesById);
+router.route('/update-recepie').patch(updateRecepie);
+router.route('/delete-recepie').delete(deleteRecepie);
 
 
 

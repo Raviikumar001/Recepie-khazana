@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cors({
     origin: "*",
-    methods: "GET,POST,UPDATE,DELETE",
+    methods: "GET,POST,UPDATE,DELETE,PATCH",
   }));
 
 

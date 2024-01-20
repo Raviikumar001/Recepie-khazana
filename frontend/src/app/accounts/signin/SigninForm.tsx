@@ -45,7 +45,9 @@ import Image from 'next/image';
 
 
 
-    const googleAuth = () => {
+    const googleAuth = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();  // Prevents the default behavior (e.g., form submission)
+        e.stopPropagation();
         window.open(
             `https://recepie-khazana-production.up.railway.app/v1/auth/google/callback`,
             "_self"
@@ -95,6 +97,11 @@ import Image from 'next/image';
                 {/* <button className='google-auth-button' >
             
             </button> */}
+
+
+
+
+
                 <button onClick={googleAuth} className="google-auth-button flex justify-center items-center">
                     <img className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
                     <p className="font-medium pl-4">
@@ -103,11 +110,6 @@ import Image from 'next/image';
 
                     </p>
                 </button>
-
-
-
-
-
 
 
             </form>

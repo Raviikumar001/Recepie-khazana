@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 type RecipeProps = {
     _id: string;
     creator: string;
@@ -34,7 +34,7 @@ const RecepiedHeader: React.FC<RecepiedHeaderProps> = ({ recepie }) => {
                     {recepie.images.map((item, index) => (
                         <div key={index} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow min-h-min">
 
-                            <img className="rounded-t-lg img-height" src={item} alt="" />
+                            <Image className="rounded-t-lg img-height" src={item} alt="" />
 
 
                         </div>

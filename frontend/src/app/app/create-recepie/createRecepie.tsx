@@ -5,7 +5,7 @@ import AppHeader from '@/app/_components/app/_appHeader'
 import axios from 'axios';
 import { useUserContext } from '@/app/_contexts/_user_context';
 import { useRouter } from 'next/navigation';
-
+import Image from 'next/image';
 
 
 
@@ -160,7 +160,7 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
         <div className='flex gap-2 rounded-r rounded-md mt-3 mb-3'>
           {/* Display image previews */}
           {files.map((file, index) => (
-            <img
+            <Image
               key={index}
               src={URL.createObjectURL(file)}
               alt={`Preview ${index + 1}`}

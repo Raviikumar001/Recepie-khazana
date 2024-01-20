@@ -2,6 +2,7 @@ import Link from "next/link";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import recepiesList from "../../../../recepie";
+import Image from "next/image";
 
 interface RecipeImage {
   url: string;
@@ -63,7 +64,7 @@ const RecepieList: React.FC<RecepieListProps> = ({ RecipeArray }) => {
         {recepielist.map((item) => (
           <div key={item._id} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow min-h-min">
             <Link href={`/app/recepie/${item.recepieId}`}>
-              <img className="rounded-t-lg img-height" src={item.images[0]} alt="" />
+              <Image className="rounded-t-lg img-height" src={item.images[0]} alt="" />
             </Link>
             <div className="p-5">
               <Link href={`/app/recepie/${item.recepieId}`}>

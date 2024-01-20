@@ -4,6 +4,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/_contexts/_user_context';
+import Image from 'next/image';
 
  const SigninForm = () => {
     const [email, setEmail] = useState('');
@@ -93,7 +94,7 @@ import { useUserContext } from '@/app/_contexts/_user_context';
             
             </button> */}
                 <button onClick={googleAuth} className="google-auth-button flex justify-center items-center">
-                    <img className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
+                    <Image className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
                     <p className="font-medium pl-4">
 
                         CONTINUE WITH GOOGLE

@@ -160,7 +160,7 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
         <div className='flex gap-2 rounded-r rounded-md mt-3 mb-3'>
           {/* Display image previews */}
           {files.map((file, index) => (
-            <Image
+            <img
               key={index}
               src={URL.createObjectURL(file)}
               alt={`Preview ${index + 1}`}

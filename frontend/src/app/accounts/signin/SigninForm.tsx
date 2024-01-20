@@ -94,7 +94,7 @@ import Image from 'next/image';
             
             </button> */}
                 <button onClick={googleAuth} className="google-auth-button flex justify-center items-center">
-                    <Image className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
+                    <img className=" w-5 justify-self-start" src="/google.png" alt="g-logo" />
                     <p className="font-medium pl-4">
 
                         CONTINUE WITH GOOGLE

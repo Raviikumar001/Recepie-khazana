@@ -64,7 +64,7 @@ const RecepieList: React.FC<RecepieListProps> = ({ RecipeArray }) => {
         {recepielist.map((item) => (
           <div key={item._id} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow min-h-min">
             <Link href={`/app/recepie/${item.recepieId}`}>
-              <Image className="rounded-t-lg img-height" src={item.images[0]} alt="" />
+              <img className="rounded-t-lg img-height" src={item.images[0]} alt="" />
             </Link>
             <div className="p-5">
               <Link href={`/app/recepie/${item.recepieId}`}>

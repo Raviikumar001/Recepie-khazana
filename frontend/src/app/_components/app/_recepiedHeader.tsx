@@ -34,7 +34,7 @@ const RecepiedHeader: React.FC<RecepiedHeaderProps> = ({ recepie }) => {
                     {recepie.images.map((item, index) => (
                         <div key={index} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow min-h-min">
 
-                            <Image className="rounded-t-lg img-height" src={item} alt="" />
+                            <img className="rounded-t-lg img-height" src={item} alt="" />
 
 
                         </div>

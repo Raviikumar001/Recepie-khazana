@@ -78,7 +78,7 @@ router.post('/create-recepie', upload.array('images', 5), async (req, res, next)
             const params = {
                 Bucket: bucketName,
                 Key: imageName,
-                Body: resizedBuffer,
+                Body: file.buffer,
                 ContentType: file.mimetype,
             };
 

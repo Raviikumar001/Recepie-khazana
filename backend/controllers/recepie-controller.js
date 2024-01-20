@@ -1,6 +1,6 @@
 
 const Recepie = require('../models/recepie');
-
+const {recepiesDefault} = require('../utils/recepie');
 
 
 const getRecepies = async(req,res,next)=> {
@@ -9,9 +9,9 @@ const getRecepies = async(req,res,next)=> {
     try {
 
         const recepies = await Recepie.find({creator:req.query.id})
-        // console.log(recepies);
-
-        return res.status(200).json({recepies, message:"Recepies fetched successfully"});
+        console.log(recepies);
+        const combinedRecepies = [...recepiesDefault,...recepies]
+        return res.status(200).json({recepies: combinedRecepies, message:"Recepies fetched successfully"});
     } catch (error) {
         console.log(error);
         return res.status(500).json({message:"Failed to fetch Recepies"})

@@ -4,19 +4,24 @@ import React, { useState , useEffect} from 'react'
 import AppHeader from '@/app/_components/app/_appHeader'
 import axios from 'axios';
 import { useUserContext } from '@/app/_contexts/_user_context';
-import { useRouter } from 'next/navigation';
+import { useRouter,useParams } from 'next/navigation';
+
 
 
 
 
 type CreateRecepieProps = {
   edit: boolean
+ 
+
 }
 
 
 
-const EditRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
+const EditRecepie:React.FC<CreateRecepieProps>= ({edit }) => {
+  
   const [files, setFiles] = useState<File[]>([]);
+  let params = useParams();
   const [recepieTitle, setRecepieTitle] = useState<string>('');
   const [recepieDescription, setRecepieDescription] = useState<string>('');
   // const [totalTime, setTotalTime] =useState<number>();
@@ -87,12 +92,12 @@ const EditRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
       }, 1000);
     }
   }, [message]);
-  console.log()
+  console.log(params)
 
   return (
     <div className='h-screen'>
       <AppHeader showSearch={true} />
-      <div className='ml-[5%] mt-5'>
+      <div className='ml-[5%] mt-5'>  
         <h2 className='font-bold text-2xl'>{edit?"Edit":"Create" }Your Recipe</h2>
       </div>
 

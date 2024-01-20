@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { SearchIcon,UserAccount } from '../_svgFiles';
 import { useUserContext } from '@/app/_contexts/_user_context';
 import { useRouter } from 'next/navigation';
@@ -35,7 +35,7 @@ const AppHeader = ({showSearch}:HeaderProps) => {
     setLoggedUser(user)
 
   },[user])
-  console.log(loggedUser, user)
+  // console.log(loggedUser, user)
 
 
 

@@ -120,7 +120,9 @@
         @apply block m-2 p-2.5 h-[15%] ml-0 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 w-[60%]
     }
     
-
+    /* .div-center{
+        @apply 
+    } */
 
   
 }
@@ -171,3 +173,17 @@
     {
    margin-top: 2px;
     }
+
+.img-height{
+    height: 200px;
+    width: 280px;
+
+object-fit: cover;
+    
+}
+
+.div-center{
+    margin-top: 5rem;
+    margin-left: 5%;
+    margin-right: 5%;
+}

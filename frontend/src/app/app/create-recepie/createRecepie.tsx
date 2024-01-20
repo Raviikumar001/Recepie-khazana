@@ -84,7 +84,7 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
         if(message == 'Recipe created successfully'){
           return navigate.push('/app')
         }
-      }, 1000);
+      }, 1300);
     }
   }, [message]);
 
@@ -156,15 +156,15 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
 
 
 
-        <div className='flex gap-2 rounded-r rounded-md'>
+        <div className='flex gap-2 rounded-r rounded-md mt-3 mb-3'>
           {/* Display image previews */}
           {files.map((file, index) => (
             <img
               key={index}
               src={URL.createObjectURL(file)}
               alt={`Preview ${index + 1}`}
-              className='rounded-md contain'
-              style={{ width: '100px', height: '100px', marginRight: '10px', backgroundSize: 'cover' }}
+              className='rounded-md img-height'
+              // style={{ width: '100px', height: '100px', marginRight: '10px', backgroundSize: 'cover' }}
             />
           ))}
         </div>

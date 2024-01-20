@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { MessageInfo } from '@/app/_components/_Helper_functions';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 const SignupForm:React.FC = () => {
 
 
@@ -14,8 +15,10 @@ const SignupForm:React.FC = () => {
     const [password, setPassword]= useState('');
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState<string>('')
+    let navigate = useRouter();
+
     async function onSubmitForm(e:React.FormEvent<HTMLFormElement>)
-    {
+    {   
         e.preventDefault();
         if(!( name && email && password && confirmPassword) )
         {
@@ -29,7 +32,11 @@ const SignupForm:React.FC = () => {
 
         });
 
-        console.log(response);
+        console.log(response, "resonse")
+        if(response.data)
+        {
+            setMessage(response.data.message)
+        }
 
 
 
@@ -37,7 +44,7 @@ const SignupForm:React.FC = () => {
 
     }
 
-
+    console.log(message)
 
     const googleAuth = () => {
         window.open(
@@ -46,15 +53,25 @@ const SignupForm:React.FC = () => {
         )
       }
     
-    
+      useEffect(() => {
+        if (message) {
+          setTimeout(() => {
+            setMessage("");
+            if (message == "User Created") {
+              return navigate.push("/accounts/signin");
+            }
+          }, 2000);
+        }
+      }, [message]);   
 
 
 
     return (
         <div>
 
-            <MessageInfo message={message} />
+      
             <form className='form' onSubmit={onSubmitForm} >
+            <MessageInfo message={message} />
                 <label htmlFor='email' className='lablel-text' >Name</label><br />
                 <input name='name' value={name}
                 onChange={(e)=> setName(e.target.value)}

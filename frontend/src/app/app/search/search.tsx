@@ -41,11 +41,12 @@ const Search = () => {
   const [recepies, setRecepies] = useState<RecipeArray>([]);
   const [inputSearch, setInputSearch] = useState('');
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | undefined>();
-  const [searchedResults, setSearchedResults] = useState<RecipeArray | null>([]);
+  const [searchedResults, setSearchedResults] = useState<RecipeArray>([]);
 
   const fetchRecepies = async (user: any) => {
     try {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/v1/api/get-recepies?id=${user?._id}`);
+      console.log(response)
       if (response.data) {
         const reversedRecepies = response.data.recepies.reverse();
         setRecepies(reversedRecepies);
@@ -59,6 +60,7 @@ const Search = () => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(searchTimeout);
     setInputSearch(e.target.value);
+    console.log(inputSearch)
 
     setSearchTimeout(
       setTimeout(() => {
@@ -97,7 +99,7 @@ const Search = () => {
       </div>
 
       {/* Use searchedResults instead of recepies in RecepieList */}
-      <RecepieList RecipeArray={searchedResults || []} />
+     { searchedResults?.length>0 &&<RecepieList RecipeArray={searchedResults || []} />}
     </div>
   );
 };

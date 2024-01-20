@@ -16,12 +16,25 @@ type CreateRecepieProps = {
 
 }
 
+interface RecipeProps {
+  _id: string;
+  creator: string;
+  recepieId: string;
+  title: string;
+  description: string;
+  ingredients: string;
+  recepieSteps: string;
+  images: string[];
+  __v: number;
+}
+
 
 
 const EditRecepie:React.FC<CreateRecepieProps>= ({edit }) => {
   
   const [files, setFiles] = useState<File[]>([]);
   let params = useParams();
+  const [recepie, setRecepe]=useState<RecipeProps>();
   const [recepieTitle, setRecepieTitle] = useState<string>('');
   const [recepieDescription, setRecepieDescription] = useState<string>('');
   // const [totalTime, setTotalTime] =useState<number>();
@@ -48,25 +61,19 @@ const EditRecepie:React.FC<CreateRecepieProps>= ({edit }) => {
     event.preventDefault();
     setDisable(true);
 
-    console.log(recepieDescription, recepieSteps, recepieTitle, ingrediants, recepieSteps)
-    const formData = new FormData();
-
-    files.forEach((file) => {
-      formData.append('images', file);
-      
-      
-    });
-
-
-    formData.append('title', recepieTitle);
-    formData.append('description', recepieDescription)
-    formData.append('ingrediants', ingrediants)
-    formData.append('recepieSteps', recepieSteps)
+    // console.log(recepieDescription, recepieSteps, recepieTitle, ingrediants, recepieSteps)
+ 
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/v1/api/create-recepie?id=${user?._id}`,
-        formData,
-        { headers: { 'Content-Type': 'multipart/form-data' } }
+     
+      const response = await axios.patch(
+        `${process.env.NEXT_PUBLIC_API_URL}/v1/api/update-recepie?id=${recepie?._id}`,
+       {
+        title: recepieTitle,
+        description:recepieDescription,
+        ingredients:ingrediants,
+        recepieSteps: recepieSteps
+        
+       }
       );
       console.log(response);
       if(response.status=201)
@@ -80,13 +87,27 @@ const EditRecepie:React.FC<CreateRecepieProps>= ({edit }) => {
     }
   };
 
+  async function fetchRecepieByid()
+  {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/v1/api/get-recepieById?id=${params.id}`);
+    // console.log(response);
+    if(response.data.recepie)
+    { setRecepe(response.data.recepie)
+      setRecepieTitle(response.data.recepie.title)
+      setRecepieDescription(response.data.recepie.description)
+      setIngredients(response.data.recepie.ingredients);
+      setRecepieSteps(response.data.recepie.recepieSteps)
 
+    }
+
+  }
 
   useEffect(() => {
+    fetchRecepieByid()
     if (message) {
       setTimeout(() => {
         setMessage("")
-        if(message == 'Recipe created successfully'){
+        if(message == 'Recepie updated succefully'){
           return navigate.push('/app')
         }
       }, 1000);

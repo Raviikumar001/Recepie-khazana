@@ -15,6 +15,11 @@ interface Props {
   _id?: string
 }
 
+
+
+
+
+
 const MainApp: React.FC = () => {
 
 
@@ -129,7 +134,7 @@ const MainApp: React.FC = () => {
           <AppHeader showSearch={true} />
 
           <AppRecepieList />
-          <RecepieList RecipeArray={recepies}/>
+        {recepies.length>0&&  <RecepieList RecipeArray={recepies}  />}
 
         </>}
 

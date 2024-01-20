@@ -1,6 +1,7 @@
 import Link from "next/link";
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import recepiesList from "../../../../recepie";
 
 interface RecipeImage {
   url: string;
@@ -14,6 +15,7 @@ interface RecipeProps {
   description: string;
   ingredients: string;
   recepieSteps: string;
+  edit?:boolean,
   images: string[];
   __v: number;
 }
@@ -52,7 +54,7 @@ const RecepieList: React.FC<RecepieListProps> = ({ RecipeArray }) => {
 
     setRecepieList(RecipeArray);
   }, [RecipeArray]);
-
+  console.log(recepielist, "lll")
 
 
   return (
@@ -60,19 +62,24 @@ const RecepieList: React.FC<RecepieListProps> = ({ RecipeArray }) => {
       <div className="flex div-center gap-2 flex-wrap mb-10">
         {recepielist.map((item) => (
           <div key={item._id} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow min-h-min">
-            <a href="#">
+            <Link href={`/app/recepie/${item.recepieId}`}>
               <img className="rounded-t-lg img-height" src={item.images[0]} alt="" />
-            </a>
+            </Link>
             <div className="p-5">
-              <a href="#">
+              <Link href={`/app/recepie/${item.recepieId}`}>
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{item.title}</h5>
-              </a>
+              </Link>
             </div>
             <div className="flex justify-between pl-3 pr-3 pb-3 text-blue-500">
-              <button>
+             {item?.edit!==false&&
+             <>
+             
+             <button>
                 <Link href={`/app/edit/${item.recepieId}`}>Edit </Link>
               </button>
               <button onClick={(e) => deleteRecepie(item._id)}>Delete</button>
+             </>
+              }
             </div>
           </div>
         ))}

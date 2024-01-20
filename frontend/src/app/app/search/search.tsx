@@ -25,7 +25,7 @@ const Search: React.FC = () => {
   const [inputSearch, setInputSearch] = useState('');
   const [searchedResults, setSearchedResults] = useState<RecipeArray>([]);
   const [loading, setLoading] = useState(true);
-
+    const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | undefined>();
   const fetchRecepies = async (userId: string | undefined) => {
     try {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/v1/api/get-recepies?id=${userId}`);
@@ -40,18 +40,30 @@ const Search: React.FC = () => {
       setLoading(false);
     }
   };
+
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value;
+    clearTimeout(searchTimeout);
+    setInputSearch(e.target.value);
   
-    const filteredResults = recepies.filter((recipe) => {
-      const titleMatch = recipe.title.includes(searchValue);
-      const ingredientsMatch = recipe.ingredients.includes(searchValue);
-      return titleMatch || ingredientsMatch;
-    });
-  
-    setSearchedResults(filteredResults);
-    setInputSearch(searchValue);
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
   };
+  
+  const filterPrompts = (searchtext: string) => {
+    const regex = new RegExp(searchtext, 'i');
+    return recepies.filter(
+      (item) =>
+        regex.test(item.title) ||
+        regex.test(item.ingredients)
+    );
+  };
+  
+  
   
  
 

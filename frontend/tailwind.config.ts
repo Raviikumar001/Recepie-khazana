@@ -17,6 +17,7 @@ const config: Config = {
         
         'inter':  ['Inter'],
         
+        
       }
 
     },

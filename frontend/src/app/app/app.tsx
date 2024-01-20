@@ -7,7 +7,7 @@ import AppHeader from '../_components/app/_appHeader';
 import AppRecepieList from '../_components/app/_appRecepieList';
 import axios from 'axios';
 import RecepieList from '../_components/app/_recepieList';
-
+import recepiesDefault from '../../../recepie';
 interface Props {
   name: string,
   email: string,
@@ -120,9 +120,10 @@ const MainApp: React.FC = () => {
   //   fetchRecepies()
   // },[])
 
-  // console.log(user)
 
 
+  console.log(recepiesDefault);
+  
 
 
 

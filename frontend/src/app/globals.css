@@ -123,6 +123,7 @@
     /* .div-center{
         @apply 
     } */
+    
 
   
 }
@@ -178,7 +179,7 @@
     height: 200px;
     width: 280px;
 
-object-fit: cover;
+    object-fit: cover;
     
 }
 
@@ -187,3 +188,23 @@ object-fit: cover;
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.recepie-img-height{
+    height: 300px;
+    width: 350px;
+
+object-fit: cover;
+    
+}
+
+.img-height{
+height: 300px;
+width: 350px;
+
+object-fit: cover;
+
+}
+
+.white-space-pre-wrap {
+    white-space: pre-wrap;
+  }

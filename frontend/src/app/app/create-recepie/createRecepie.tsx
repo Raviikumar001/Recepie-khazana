@@ -41,10 +41,26 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
 
 
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setDisable(true);
 
-    console.log(recepieDescription, recepieSteps, recepieTitle, ingrediants, recepieSteps)
+
+    event.preventDefault();
+    
+    setDisable(true);
+    if(!(recepieDescription && recepieSteps &&recepieSteps&&recepieTitle &&ingrediants))
+    {
+      setMessage("Fields are Empty");
+      setDisable(false);
+      return
+
+    }else if(files.length === 0 )
+    {
+      setMessage("Photos not Selected");
+      setDisable(false);
+      return
+
+    }
+
+    // console.log(recepieDescription, recepieSteps, recepieTitle, ingrediants, recepieSteps)
     const formData = new FormData();
 
     files.forEach((file) => {
@@ -85,7 +101,7 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
         if(message == 'Recipe created successfully'){
           return navigate.push('/app')
         }
-      }, 1300);
+      }, 2000);
     }
   }, [message]);
 
@@ -96,8 +112,12 @@ const CreateRecepie: React.FC<CreateRecepieProps> = ({ edit }) => {
       <div className='ml-[5%] mt-5'>
         <h2 className='font-bold text-2xl'>Create Your Recipe</h2>
       </div>
-
       <form className='ml-[5%] mt-10 h-full' onSubmit={submitForm}>
+      {message&&<>
+          <div className="p-4 mb-4 w-[30%] mt-3 text-sm text-blue-800 rounded-lg bg-blue-50" role="alert">
+  <span className="font-medium">{message}</span> 
+</div>
+        </>}
 
         <label className='label-margin label-form' >Recipe Title</label>
 

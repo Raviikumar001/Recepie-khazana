@@ -46,7 +46,9 @@ const SignupForm:React.FC = () => {
 
     console.log(message)
 
-    const googleAuth = () => {
+    const googleAuth = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();  // Prevents the default behavior (e.g., form submission)
+        e.stopPropagation();
         window.open(
           `https://recepie-khazana-production.up.railway.app/v1/auth/google/callback`,
           "_self"

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/_contexts/_user_context';
 import { MessageInfo } from '@/app/_components/_Helper_functions';
@@ -15,7 +15,9 @@ import Image from 'next/image';
     const userContext = useUserContext();
 
     async function onSubmitForm(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
+        try {
+            
+            e.preventDefault();
 
         if (!(email || password)) {
             setMessage('Some Fields are Empty');
@@ -36,6 +38,13 @@ import Image from 'next/image';
 
         }
 
+        } catch (error: unknown) {
+            const err = error as AxiosError<{ message: string }>;
+            if (err.response?.status === 401) {
+              setMessage(err.response.data.message);
+            }
+          }
+           
 
 
     }

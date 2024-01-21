@@ -111,22 +111,6 @@ const recepiesDefault =
          "https://alstorage.s3.ap-south-1.amazonaws.com/b7b310bc3627d35ebbf6468d225ae28b2221091fc97c204db6db2f1eb4e4431a?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA4HDGCVT6AVDGLBEW%2F20240120%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240120T134818Z&X-Amz-Expires=561600&X-Amz-Signature=93cd8553d9fd7c74b46e9c435de8fc023f4248f653493c0ed3f4a56e2d505306&X-Amz-SignedHeaders=host&x-id=GetObject"
      ],
      "__v": 0
- },
- {
-     "_id": "65abcd95743e0134a1faa1f3",
-     "creator": "65a7bf44ebe6724281b4591b",
-     "recepieId": "ad5eb333-45ab-41c3-9eac-536e93210c58",
-     "title": "Chia Pudding Recipe (Easy & Healthy)",
-      "edit":false,
-     "description": "If you’re looking for an easy, vegan, and healthy make-ahead breakfast, this simple recipe for Chia Pudding is for you. Made with only 4 base ingredients in about 5 minutes and endlessly customizable to fit your dietary and flavor preferences, this sweet and satisfying treat is sure to become a family favorite.",
-     "ingredients": "Chia Seeds – You’ll need chia seeds to make a proper chia pudding. That said, linseeds (a.k.a. flaxseeds) will act similarly.\r\n\r\nLight or Thin Coconut Milk – You are looking for the second or third pressing of the fruit, or the kind that is usually sold in a paper carton. If you use thick canned coconut milk (which is from the first extract), then add ¼ cup water and mix very well to create a homogenous, slightly thin consistency.\r\n\r\nCoconut Sugar – Adding sweeteners is optional but I do prefer to sweeten the mix so it tastes more like pudding. Aside from coconut sugar, you can also use any of the following sweeteners.\r\n\r\n  unrefined cane sugar\r\n   palm sugar\r\n  jaggery (Indian unrefined sugar)\r\n  honey\r\n  maple syrup\r\n  fruits pastes, purées and preserves like dates paste, dried figs paste, any berry preserves, apple sauce, banana puree, or \r\n  mango puree.\r\n  sweetened chocolate sauce\r\n\r\nFlavoring – I like to add ground green cardamom, ground cinnamon and/or vanilla extract to give the chia pudding lots of depth.",
-     "recepieSteps": "Note: In the step-by-step directions shown here, I am showing the ingredient measurements for 1 serving of chia pudding. In the recipe card below, the measurements are for 2 servings. You can easily scale the recipe up or down as according to your needs.\r\n\r\n1. Add 2 tablespoons of chia seeds to a glass or jar. If you want you can rinse the seeds with water in a superfine strainer first.\r\n\r\n2. Add ¾ cup light coconut milk or the liquid of your choice. For a less thick pudding, add 1 to 1.25 cups light coconut milk.\r\n\r\n3. Sweeten with 2 tablespoons coconut sugar.",
-     "images": [
-         "https://alstorage.s3.ap-south-1.amazonaws.com/b3b96b951ec0aa5b2b5a510c620888ac8427f6172536fc252f33285a5cfe559d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA4HDGCVT6AVDGLBEW%2F20240120%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240120T134140Z&X-Amz-Expires=561600&X-Amz-Signature=93c873527eb08b88eeb725921e95500f8793a3afce341fe971091059dbab936e&X-Amz-SignedHeaders=host&x-id=GetObject",
-         "https://alstorage.s3.ap-south-1.amazonaws.com/bc27dbbeac60a1830e849da4452df60f8aefdbfda8367dcd1f853e258a01016d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA4HDGCVT6AVDGLBEW%2F20240120%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240120T134141Z&X-Amz-Expires=561600&X-Amz-Signature=37a3c455f8e32c727052e920879c990ac7b0929ef78df207a50c7992d9f0ca51&X-Amz-SignedHeaders=host&x-id=GetObject",
-         "https://alstorage.s3.ap-south-1.amazonaws.com/4b4cae80fb59a61b303240469361c16ce3af996bc7c72e06d2ad8812b0c4183f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA4HDGCVT6AVDGLBEW%2F20240120%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240120T134141Z&X-Amz-Expires=561600&X-Amz-Signature=0f5d3419d9f3d157b250275b96c0a2435c84ac436bb42a3d320db2f898ee7fb8&X-Amz-SignedHeaders=host&x-id=GetObject"
-     ],
-     "__v": 0
  }
 ]
 

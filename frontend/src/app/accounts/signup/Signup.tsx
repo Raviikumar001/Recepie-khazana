@@ -4,14 +4,14 @@ import Link from 'next/link'
 
 const SignUp = () => {
     return (
-        <div className='grid grid-col-2 grid-flow-col  h-full w-full'>
+        <div className='grid grid-col-2 grid-flow-col  h-screen w-full'>
             <div
 
                 className='min-width: min-content'
                 style={{
                     backgroundImage: 'url("/recepie2.jpg")',
                     backgroundSize: 'cover',
-                    height: '100vh',
+                    height: '100%',
                     width: "100%"
                 }}
 

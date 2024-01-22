@@ -146,7 +146,7 @@ const SignupForm: React.FC = () => {
 
 
             </form>
-            <p className='mt-3'>Already have an account? {" "}
+            <p className='mt-3 mb-10'>Already have an account? {" "}
                 <Link href="/accounts/signin" className='font-semibold'>
                     Sign In</Link>
 

@@ -58,7 +58,7 @@ import Image from 'next/image';
         e.preventDefault();  // Prevents the default behavior (e.g., form submission)
         e.stopPropagation();
         window.open(
-            `https://recepie-khazana-production.up.railway.app/v1/auth/google/callback`,
+            `https://recepie-3ny9.onrender.com/v1/auth/google/callback`,
             "_self"
         );
     };
